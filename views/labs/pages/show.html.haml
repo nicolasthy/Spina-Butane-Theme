@@ -1,0 +1,7 @@
+%article.c-article
+  %header.c-article__header
+    = image_tag @page.content(:thumbnail).try(:file_url), class: "n-article-cover"
+    %h1.c-article__title= @page.title
+    %p.c-article__time= @page.created_at.strftime("%b %-d, %Y")
+
+  .c-article__main= @page.content(:content).try(:html_safe)

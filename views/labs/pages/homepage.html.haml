@@ -1,0 +1,14 @@
+%section.c-archives
+  %ul.c-archives__list
+    - @page.children.each do |child|
+      - if child == @page.children.first
+        - this_year = child.created_at.strftime("%Y")
+        %h2.c-archives__year= this_year
+      - else
+        - next_year = child.created_at.strftime("%Y")
+        - if this_year != next_year
+          %h2.c-archives__year= next_year
+      %li.c-archives__item
+        %h3= link_to child.title, child.materialized_path
+        %p= child.created_at.strftime("%b %-d, %Y")
+        .n-post-excerpt= child.content(:excerpt).try(:html_safe)

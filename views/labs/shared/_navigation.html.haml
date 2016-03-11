@@ -1,0 +1,11 @@
+%header.c-page__header
+  - if @page.title == "Home"
+    %h1= @page.content(:content).try(:html_safe)
+  - pages = current_user.present? ? Spina::Page.active : Spina::Page.live
+  %p
+    - pages.in_menu.each do |page|
+      - if page == pages.in_menu.last
+        = link_to page.title, page.materialized_path
+      -else
+        = link_to page.title, page.materialized_path
+        %span.u-seperate

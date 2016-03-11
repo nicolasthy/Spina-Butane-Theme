@@ -1,0 +1,22 @@
+/* ==========================================================================
+   Tip
+   ========================================================================== */
+
+.c-tag {
+    margin-right: 1rem;
+    position: relative;
+    white-space: nowrap;
+    @include fs--body;
+    color: $c-base__02;
+    border-bottom: 1px solid rgba($c-base__02, 0.1);
+
+    a{
+      color: $c-base__02;
+    }
+
+    &:before {
+        color: $c-base__0;
+        content: '#\2009';
+        padding-right: 2px;
+    }
+}
